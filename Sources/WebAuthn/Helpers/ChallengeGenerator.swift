@@ -18,7 +18,7 @@ package struct ChallengeGenerator: Sendable {
         .init(generate: { [UInt8].random(count: 32) })
     }
 
-    public init(generate: @Sendable () -> [UInt8]) {
+    public init(generate: @escaping @Sendable () -> [UInt8]) {
         self.generate = generate
     }
 }
