@@ -17,4 +17,8 @@ package struct ChallengeGenerator: Sendable {
     package static var live: Self {
         .init(generate: { [UInt8].random(count: 32) })
     }
+
+    public init(generate: @Sendable () -> [UInt8]) {
+        self.generate = generate
+    }
 }
